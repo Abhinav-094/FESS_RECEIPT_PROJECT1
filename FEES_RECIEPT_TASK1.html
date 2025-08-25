@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            function print_out()
+            {
+              var name = window.print();
+               
+            }
+    </script>
+    <style>
+        #main_div
+        {
+            border:solid black 2px;
+            height: 650px;
+            width: 800px;
+            margin-left: 350px;
+            background-color: rgb(161, 217, 217);  
+            text-align: center;      
+        }
+        #second_div
+        {
+            border:solid black 2px;
+        }
+        #date
+        {
+            margin-left: 637px;
+            margin-top: 30px;
+        }
+        #name
+        {
+            margin-left: -100px;
+            margin-top: 40px;
+        }
+        #input_type
+        {
+            width: 500px;
+            height: 30px;
+        }
+        #table
+        {
+            border: solid black 2px;
+            width: 450px;
+            margin-left: 190px;
+            height: 188px;
+        }
+    </style>
+    <script>
+        function gst()
+        {
+            var total_amount  =  parseInt(  document.getElementById("pay_fee").value)
+            var total_gst_amount =  parseInt( document.getElementById("total_gst").value)
+            var tax = total_amount*total_gst_amount/100; 
+            document.getElementById("gst_total").value = tax;
+            document.getElementById("cgst").value = tax/2
+            document.getElementById("sgst").value = tax/2
+           var final_result =  parseInt(total_amount + tax);
+            document.getElementById("total_fee").value = final_result;
+
+        }
+    </script>
+</head>
+<body>
+    <div id="main_div">
+        <h1>ABC Institude</h1>
+        <h5>Vijay Nagar INDORE M.P (mob :- 12121212121)</h5>
+     <div id="second_div">
+             <b>RECIEPT</b>
+     </div>        
+    <div id="date"> Date :- <input  type="date" onkeyup="date_time()"></div><br><hr>
+   <div id="name"><b> NAME OF STUDENT :--- <input id="input_type" type="text "></b></div><br>
+   <div id="table">
+    <div id="main_table"><table border="1px" cellspacing = "0px"></div>
+        <tr>
+            <th>COURSE OFFERRED BY INSTITUTE</th>
+            <th>COURSE FESS</th>
+        </tr>
+        <tr>
+            <td>COURSE</td>
+            <td>
+               <select >
+                <option>
+                    SELECT COURSE
+                </option>
+                 <option>
+                    B.TECH
+                </option>
+                 <option>
+                    M.TECH
+                </option>
+                 <option>
+                    BBA
+                </option>
+                 <option>
+                    MBA
+                </option>
+               </select>
+            </td>
+        </tr>
+            <tr>
+              <td>PAY FEE</td>
+             <td>
+                <input  id="pay_fee"  type="text">
+             </td>
+             <tr>
+            <td>
+    GST INCLUDE <select id="total_gst" onchange="gst()">
+                    <option value="" >
+                        GST
+                    </option>
+                    <option value="9">
+                        9%
+                    </option>
+                    <option value="18">
+                        18%
+                    </option>
+                </select>
+            </td>
+             <td>
+                <input id="gst_total" type="text">
+             </td>
+            </td>
+            <tr>
+            <td> 
+              CGST (%)
+            </td>
+             <td>
+                <input  id="cgst"  type="text">
+             </td>
+            </tr>
+             <tr>
+            <td> 
+              SGST (%)
+            </td>
+             <td>
+                <input  id="sgst"  type="text">
+             </td>
+            </tr>
+            <tr>
+            <td> 
+             TOTAL FEE INCLUDING TAX
+            </td>
+             <td>
+                <input   id="total_fee" type="text">
+             </td>
+            </tr>   
+    </table>
+   </div><br><br><br>
+    <button onclick="print_out()" id="print_btn" >PRINT RECIEPT</button>
+    </div>
+</body>
+</html>
